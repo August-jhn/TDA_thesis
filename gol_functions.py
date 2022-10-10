@@ -186,6 +186,7 @@ def main(grid):
                     
                 if event.key == pg.K_RIGHT:
                     cells = update_grid_looped(cells, screen, update = True)
+                    game_data.append(cells)
                     pg.display.update()
 
                 if event.key == pg.K_c:
