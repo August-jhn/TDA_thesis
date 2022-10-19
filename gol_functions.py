@@ -10,7 +10,7 @@ from mpl_toolkits import mplot3d
 
 BLACK = (0,0,0)
 WHITE = (255, 255, 255)
-TILE_SIZE = 40
+TILE_SIZE = 10
 DIM = 800
 random_death = 0 
 sleep_time = 0.01
@@ -55,7 +55,7 @@ def point_cloud_to_txt(point_cloud_array):
 
         except:
             number += 1
-            if i > 20:
+            if number > 20:
                 print("either we have way too many files or i fucked up the code")
                 done = True
 
@@ -209,6 +209,8 @@ def main(grid):
                     points = find_point_cloud(game_data)
                     point_cloud_to_txt(points)
                     
+                if event.key == pg.K_d:
+                    game_data = []
                     
                 if event.key == pg.K_p:
                     running = False
@@ -233,7 +235,9 @@ def main(grid):
                             points = find_point_cloud_complement(game_data)
                             ax.scatter(points[:,0], points[:,1], points[:,2], c = 'r', s = 50)
                             plt.show()
-                        plot_diagrams(dgms2, show = True)
+                        
+                        plot_diagrams(dgms2, show = False)
+                        plt.savefig('saving')
                         print(dgms2)
                 
                 if event.key == pg.K_ESCAPE:
