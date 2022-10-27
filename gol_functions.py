@@ -10,7 +10,7 @@ from mpl_toolkits import mplot3d
 
 BLACK = (0,0,0)
 WHITE = (255, 255, 255)
-TILE_SIZE = 10
+TILE_SIZE = 50
 DIM = 800
 random_death = 0 
 sleep_time = 0.01
@@ -75,7 +75,7 @@ def txt_to_pointcloud(name):
             x = int(coordinates[0])
             y = int(coordinates[1])
             t = int(coordinates[2])
-            point_cloud.append(x,y,z)
+            point_cloud.append(x,y,t)
             
     return point_cloud
               
